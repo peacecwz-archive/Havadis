@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="Havadis.Views.NewsDetailPage">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="100" />
+    </Grid.RowDefinitions>
+
+    <StackLayout Orientation="Vertical"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 Grid.Row="0">
+      <Label Text="{Binding NewsTitle}"
+             LineBreakMode="WordWrap"
+             FontAttributes="Bold"
+             FontSize="24"
+             HorizontalTextAlignment="Center"
+             HorizontalOptions="FillAndExpand" />
+      <WebView x:Name="web"
+               Source="{Binding HtmlContent}"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"/>
+    </StackLayout>
+
+    <StackLayout Orientation="Vertical"
+                 HorizontalOptions="FillAndExpand"
+                 Grid.Row="1">
+      <Button IsVisible="{Binding HasVideo}" Text="Youtube Videosu İzle" />
+      <Button Clicked="ShareButton_Clicked" Text="Paylaş" />
+    </StackLayout>
+  </Grid>
+</ContentPage>
